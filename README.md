@@ -17,7 +17,7 @@
   <a href="README.zh-TW.md">繁體中文</a>
 </p>
 
-Tugboat is an open-source Agent Skill for ChatGPT and Codex. When stalled or high-stakes work is causing significant anxiety, it helps the agent take the user's stated experience seriously and turn that understanding into persistent, evidence-driven problem solving—without empty reassurance, false certainty, or lowering the user's goal.
+Tugboat is an open-source Agent Skill for ChatGPT and agents that implement the Agent Skills standard, including Codex, Claude Code, GitHub Copilot CLI, Pi, Gemini CLI, and Grok Build. When stalled or high-stakes work is causing significant anxiety, it helps the agent take the user's stated experience seriously and turn that understanding into persistent, evidence-driven problem solving—without empty reassurance, false certainty, or lowering the user's goal.
 
 Tugboat is not a reassurance script. It treats credible movement as the goal: an improved outcome, a validated cause, or a well-supported direction whose uncertainty is stated honestly.
 
@@ -33,26 +33,63 @@ Tugboat is not a reassurance script. It treats credible movement as the goal: an
 
 ## Quick start
 
-### 1. Install
+### 1. Review the skill
 
-Ask Codex to install the skill from this repository:
+Agent Skills can change how an agent approaches work. Inspect Tugboat before installing it:
 
-```text
-Use $skill-installer to install Tugboat from https://github.com/grgy078033/tugboat/tree/main/tugboat.
+```bash
+gh skill preview grgy078033/tugboat tugboat/SKILL.md
 ```
 
-The installer makes the skill available on your next turn. For a repository-scoped installation, you can instead copy the [`tugboat/`](tugboat/) directory to `.agents/skills/tugboat` in that repository.
+The commands below require [GitHub CLI](https://cli.github.com/) 2.90.0 or later. `gh skill` is currently a public-preview feature.
 
-Tugboat follows the [Agent Skills](https://agentskills.io/) directory format and is authored for ChatGPT and Codex using OpenAI's [skill guidance](https://learn.chatgpt.com/codex/build-skills).
+### 2. Install for your agent
 
-### 2. Invoke
+Choose the agent you use. These commands install Tugboat at user scope, making it available across your projects:
 
-Start a new turn and invoke Tugboat explicitly with `$tugboat`. Tugboat can also be matched implicitly when your own description fits its scope; when that happens, it asks for consent before applying the mode.
+```bash
+# Codex
+gh skill install grgy078033/tugboat tugboat/SKILL.md --agent codex --scope user
+
+# Claude Code
+gh skill install grgy078033/tugboat tugboat/SKILL.md --agent claude-code --scope user
+
+# GitHub Copilot CLI
+gh skill install grgy078033/tugboat tugboat/SKILL.md --agent github-copilot --scope user
+
+# Pi agent harness
+gh skill install grgy078033/tugboat tugboat/SKILL.md --agent pi --scope user
+
+# Gemini CLI
+gh skill install grgy078033/tugboat tugboat/SKILL.md --agent gemini-cli --scope user
+
+# Grok Build
+gh skill install grgy078033/tugboat tugboat/SKILL.md --agent grok --scope user
+```
+
+To install Tugboat only for one repository, run the command from that repository and replace `--scope user` with `--scope project`. GitHub CLI selects the correct discovery directory for the chosen agent and records the source so the installation can later be updated with `gh skill update`.
+
+### 3. Verify and invoke
+
+Start a fresh session after installation, then use the syntax for your agent:
+
+| Agent | Verify discovery | Explicit invocation |
+| --- | --- | --- |
+| [Codex](https://learn.chatgpt.com/docs/build-skills) | Open `/skills`, or restart if Tugboat does not appear | `$tugboat` |
+| [Claude Code](https://code.claude.com/docs/en/skills) | Type `/` and find `tugboat` | `/tugboat` |
+| [GitHub Copilot CLI](https://docs.github.com/en/copilot/how-tos/copilot-cli/customize-copilot/add-skills) | `/skills info tugboat` | `/tugboat` |
+| [Pi](https://github.com/earendil-works/pi/blob/main/packages/coding-agent/docs/skills.md) | Confirm skill commands are enabled in `/settings` | `/skill:tugboat` |
+| [Gemini CLI](https://geminicli.com/docs/cli/using-agent-skills/) | `/skills list` | Ask Gemini to use the `tugboat` skill and approve activation |
+| [Grok Build](https://docs.x.ai/build/features/skills-plugins-marketplaces) | Open `/skills`, or run `grok inspect` | `/tugboat` |
+
+Tugboat may also be matched automatically when your description fits its scope. When the fit is inferred rather than explicitly requested, Tugboat asks for consent before applying the mode.
+
+Tugboat follows the [Agent Skills](https://agentskills.io/) directory format. The installable artifact remains the same [`tugboat/`](tugboat/) directory for every supported agent.
 
 ## Example
 
 ```text
-Use $tugboat. This project has stalled after several attempts, and the uncertainty is causing significant anxiety. Help me preserve the outcome I care about, determine what is actually blocking progress, and pursue the highest-information next step.
+This project has stalled after several attempts, and the uncertainty is causing significant anxiety. Use Tugboat to help me preserve the outcome I care about, determine what is actually blocking progress, and pursue the highest-information next step.
 ```
 
 Tugboat guides the agent to:
