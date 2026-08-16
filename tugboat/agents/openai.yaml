@@ -1,0 +1,7 @@
+interface:
+  display_name: "Tugboat"
+  short_description: "Anxiety-aware persistence for stalled work"
+  default_prompt: "Use $tugboat to understand the stakes of this stalled work and help me pursue credible progress without lowering my goal."
+
+policy:
+  allow_implicit_invocation: true

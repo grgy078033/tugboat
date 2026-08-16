@@ -1,0 +1,16 @@
+# Local planning and generated project memory
+PLAN.md
+graphify-out/
+
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.venv/
+.validator-deps/
+
+# Editors and operating systems
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
