@@ -17,7 +17,7 @@
   <a href="README.md">English</a>
 </p>
 
-Tugboat 是為 ChatGPT 與 Codex 打造的開源 Agent Skill。當停滯或高風險的工作帶來明顯焦慮時，它會讓模型認真看待使用者所描述的處境，並將這份理解轉化為持續、以證據驅動的解題行動，而不是空泛安慰、虛假確定性，或擅自降低使用者的目標。
+Tugboat 是一個開源 Agent Skill，適用於 ChatGPT，以及實作 Agent Skills 標準的 AI 代理，包含 Codex、Claude Code、GitHub Copilot CLI、Pi、Gemini CLI 與 Grok Build。當停滯或高風險的工作帶來明顯焦慮時，它會讓模型認真看待使用者所描述的處境，並將這份理解轉化為持續、以證據驅動的解題行動，而不是空泛安慰、虛假確定性，或擅自降低使用者的目標。
 
 Tugboat 不是一套安慰話術。它追求的是可信的推進：成果確實改善、原因獲得驗證，或找到有充分證據支持的方向；仍存在的不確定性則必須被誠實說明。
 
@@ -33,26 +33,63 @@ Tugboat 不是一套安慰話術。它追求的是可信的推進：成果確實
 
 ## 快速開始
 
-### 1. 安裝
+### 1. 先檢視 Skill
 
-請 Codex 從這個程式碼庫安裝 Skill：
+Agent Skill 會影響 AI 代理處理任務的方式。安裝前可先檢視 Tugboat 的內容：
 
-```text
-請使用 $skill-installer，從 https://github.com/grgy078033/tugboat/tree/main/tugboat 安裝 Tugboat。
+```bash
+gh skill preview grgy078033/tugboat tugboat/SKILL.md
 ```
 
-安裝完成後，下一個對話回合即可使用。若只想安裝在特定程式碼庫，也可以把本專案的 [`tugboat/`](tugboat/) 目錄複製到該程式碼庫的 `.agents/skills/tugboat`。
+以下指令需要 [GitHub CLI](https://cli.github.com/) 2.90.0 以上版本。`gh skill` 目前仍是 public preview 功能。
 
-Tugboat 遵循 [Agent Skills](https://agentskills.io/) 的目錄格式，並依照 OpenAI 的 [Skill 指引](https://learn.chatgpt.com/codex/build-skills) 為 ChatGPT 與 Codex 編寫。
+### 2. 安裝到你使用的 AI 代理
 
-### 2. 啟用
+選擇你使用的代理。以下指令會將 Tugboat 安裝在使用者範圍，因此所有專案都能使用：
 
-開啟新的對話回合，使用 `$tugboat` 明確啟用。當使用者自己的描述符合適用情境時，Tugboat 也可能被自動匹配；此時會先詢問使用者是否同意啟用這個模式。
+```bash
+# Codex
+gh skill install grgy078033/tugboat tugboat/SKILL.md --agent codex --scope user
+
+# Claude Code
+gh skill install grgy078033/tugboat tugboat/SKILL.md --agent claude-code --scope user
+
+# GitHub Copilot CLI
+gh skill install grgy078033/tugboat tugboat/SKILL.md --agent github-copilot --scope user
+
+# Pi agent harness
+gh skill install grgy078033/tugboat tugboat/SKILL.md --agent pi --scope user
+
+# Gemini CLI
+gh skill install grgy078033/tugboat tugboat/SKILL.md --agent gemini-cli --scope user
+
+# Grok Build
+gh skill install grgy078033/tugboat tugboat/SKILL.md --agent grok --scope user
+```
+
+若只想安裝在某一個程式碼庫，請先進入該程式碼庫，再將指令中的 `--scope user` 改成 `--scope project`。GitHub CLI 會根據選擇的代理安裝到正確的搜尋目錄，並記錄來源，日後可使用 `gh skill update` 更新。
+
+### 3. 確認並啟用
+
+安裝後開啟新的對話階段，再使用該代理對應的語法：
+
+| AI 代理 | 確認已找到 Skill | 明確啟用方式 |
+| --- | --- | --- |
+| [Codex](https://learn.chatgpt.com/docs/build-skills) | 開啟 `/skills`；若沒有出現 Tugboat，重新啟動 Codex | `$tugboat` |
+| [Claude Code](https://code.claude.com/docs/en/skills) | 輸入 `/` 並尋找 `tugboat` | `/tugboat` |
+| [GitHub Copilot CLI](https://docs.github.com/en/copilot/how-tos/copilot-cli/customize-copilot/add-skills) | `/skills info tugboat` | `/tugboat` |
+| [Pi](https://github.com/earendil-works/pi/blob/main/packages/coding-agent/docs/skills.md) | 在 `/settings` 確認已啟用 skill commands | `/skill:tugboat` |
+| [Gemini CLI](https://geminicli.com/docs/cli/using-agent-skills/) | `/skills list` | 請 Gemini 使用 `tugboat` skill，並同意啟用 |
+| [Grok Build](https://docs.x.ai/build/features/skills-plugins-marketplaces) | 開啟 `/skills`，或執行 `grok inspect` | `/tugboat` |
+
+當使用者的描述符合適用情境時，Tugboat 也可能被自動匹配。若使用者沒有明確指定 Tugboat，它會先詢問是否同意啟用這個模式。
+
+Tugboat 遵循 [Agent Skills](https://agentskills.io/) 目錄格式。所有支援的代理都使用同一個 [`tugboat/`](tugboat/) 可安裝目錄。
 
 ## 使用範例
 
 ```text
-請使用 $tugboat。這個專案經過多次嘗試後仍然停滯，而不確定性已經造成明顯焦慮。請保留我真正重視的成果，找出阻礙進展的原因，並採取目前資訊價值最高的下一步。
+這個專案經過多次嘗試後仍然停滯，而不確定性已經造成明顯焦慮。請使用 Tugboat 保留我真正重視的成果，找出阻礙進展的原因，並採取目前資訊價值最高的下一步。
 ```
 
 Tugboat 會引導模型：
