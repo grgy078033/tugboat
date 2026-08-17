@@ -168,6 +168,9 @@ The skill is instruction-only and has no runtime dependencies.
 .
 ├── assets/
 │   └── tugboat-social-preview.jpg
+├── docs/
+│   ├── launch-kit.md
+│   └── launch-kit.zh-TW.md
 ├── evals/
 │   └── cases.md
 ├── tugboat/
@@ -184,6 +187,8 @@ The installable artifact is the `tugboat/` directory. Planning notes and generat
 ## Contributing
 
 Contributions are welcome. Read [`CONTRIBUTING.md`](CONTRIBUTING.md) before submitting changes, especially the privacy rules for examples and evaluations.
+
+To introduce Tugboat in a community, adapt the copy in the [bilingual launch kit](docs/launch-kit.md) and check that community's self-promotion rules before posting.
 
 ## License
 
