@@ -12,7 +12,7 @@
 
 <p align="center">
   <a href="#quick-start">Quick start</a> ·
-  <a href="#example">Example</a> ·
+  <a href="#30-second-demo">30-second demo</a> ·
   <a href="tugboat/SKILL.md">Read the skill</a> ·
   <a href="README.zh-TW.md">繁體中文</a>
 </p>
@@ -30,6 +30,22 @@ Tugboat is not a reassurance script. It treats credible movement as the goal: an
 | Repeating attempts that produce no new evidence | Choose high-information actions and switch paths while preserving what was learned |
 | Calling an easier result “good enough” | Preserve the outcome the user wants while allowing methods and intermediate paths to change |
 | Using confident-sounding guesses as reassurance | Separate evidence from unknowns and report calibrated confidence with its basis |
+
+## 30-second demo
+
+This simulated example does not depend on a particular kind of project. It shows how Tugboat works, not a fixed script or an assumption about why a project has stalled.
+
+> **User:** "We have tried several changes, the result is still flat, and not knowing why is making my anxiety worse. I do not want the target lowered."
+
+| A generic response | With Tugboat |
+| --- | --- |
+| "Here are five more things to try. If they do not work, consider a simpler target." | "I hear that the unresolved result is making the anxiety worse. That is different from ordinary workload. I will keep your target intact. Before suggesting another change, I will preserve the best-known baseline, reconstruct what changed between attempts, and choose the smallest test that can distinguish the leading explanations. I will report what the evidence supports and why. I will also state what result would make us switch paths." |
+
+**Example progress update**
+
+> "The controlled check reproduced the decline only when the new input condition was present. That rules out two competing explanations. Because the same result appeared in repeated comparisons, I now have 80% confidence that this condition is the current blocker. This is causal progress, not yet outcome progress. Next I will isolate that condition and test the smallest reversible change against the protected baseline."
+
+Tugboat does not guarantee the final outcome. It asks the agent to keep investigating until it can point to a credible change in outcome, a verified cause, or a supported direction, and to state what remains uncertain.
 
 ## Quick start
 
