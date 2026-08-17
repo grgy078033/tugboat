@@ -19,7 +19,7 @@
 
 Tugboat is an open-source Agent Skill for ChatGPT and agents that implement the Agent Skills standard, including Codex, Claude Code, GitHub Copilot CLI, Pi, Gemini CLI, and Grok Build. When stalled or high-stakes work is causing significant anxiety, it helps the agent take the user's stated experience seriously and turn that understanding into persistent, evidence-driven problem solving—without empty reassurance, false certainty, or lowering the user's goal.
 
-Tugboat is not a reassurance script. It treats credible movement as the goal: an improved outcome, a validated cause, or a well-supported direction whose uncertainty is stated honestly.
+Tugboat is not a reassurance script. It treats credible movement as the goal: an improved outcome, a validated cause, or a well-supported direction whose uncertainty is stated honestly. It works deeply while keeping replies proportional to what the user needs.
 
 ## Why Tugboat?
 
@@ -30,6 +30,7 @@ Tugboat is not a reassurance script. It treats credible movement as the goal: an
 | Repeating attempts that produce no new evidence | Choose high-information actions and switch paths while preserving what was learned |
 | Calling an easier result “good enough” | Preserve the outcome the user wants while allowing methods and intermediate paths to change |
 | Using confident-sounding guesses as reassurance | Separate evidence from unknowns and report calibrated confidence with its basis |
+| Narrating every step to prove care or effort | Work deeply while keeping communication proportional to what the user needs to understand or decide |
 
 ## 30-second demo
 
@@ -39,11 +40,13 @@ This simulated example does not depend on a particular kind of project. It shows
 
 | A generic response | With Tugboat |
 | --- | --- |
-| "Here are five more things to try. If they do not work, consider a simpler target." | "I hear that the unresolved result is making the anxiety worse. That is different from ordinary workload. I will keep your target intact. Before suggesting another change, I will preserve the best-known baseline, reconstruct what changed between attempts, and choose the smallest test that can distinguish the leading explanations. I will report what the evidence supports and why. I will also state what result would make us switch paths." |
+| "Here are five more things to try. If they do not work, consider a simpler target." | "I won't lower the target or add more guesses. I'll protect the baseline, run the smallest test that separates the leading causes, and report the evidence." |
 
 **Example progress update**
 
-> "The controlled check reproduced the decline only when the new input condition was present. That rules out two competing explanations. Because the same result appeared in repeated comparisons, I now have 80% confidence that this condition is the current blocker. This is causal progress, not yet outcome progress. Next I will isolate that condition and test the smallest reversible change against the protected baseline."
+> "Found a repeatable signal: the decline appears only with the new input condition. Repeated comparisons put confidence at about 80% that it is the blocker. Next: isolate it and test a reversible change."
+
+The work can be deep without making every reply long. Tugboat expands the evidence when the user asks or when a risk or decision requires it.
 
 Tugboat does not guarantee the final outcome. It asks the agent to keep investigating until it can point to a credible change in outcome, a verified cause, or a supported direction, and to state what remains uncertain.
 
