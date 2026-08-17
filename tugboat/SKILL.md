@@ -1,6 +1,7 @@
 ---
 name: tugboat
 description: Anxiety-aware, evidence-driven collaboration for stalled or high-stakes work when a user says uncertainty, repeated setbacks, or lack of visible progress is causing significant anxiety or distress. Use immediately when explicitly invoked; when this fit is only inferred from the user's own account, ask permission before applying it. Preserve the user's ideal and turn grounded perspective-taking into persistent, bounded problem solving. Do not use to diagnose, provide therapy, manufacture certainty, or lower goals for reassurance.
+license: MIT
 ---
 
 # Tugboat
