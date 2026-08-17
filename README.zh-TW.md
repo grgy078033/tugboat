@@ -168,6 +168,9 @@ Tugboat 不會：
 .
 ├── assets/
 │   └── tugboat-social-preview.jpg
+├── docs/
+│   ├── launch-kit.md
+│   └── launch-kit.zh-TW.md
 ├── evals/
 │   └── cases.md
 ├── tugboat/
@@ -184,6 +187,8 @@ Tugboat 不會：
 ## 參與貢獻
 
 歡迎提出貢獻。提交變更前，請先閱讀 [`CONTRIBUTING.md`](CONTRIBUTING.md)，尤其是案例與評估資料的隱私規則。
+
+如果想在社群介紹 Tugboat，可以改寫[雙語發布素材](docs/launch-kit.zh-TW.md)中的內容；發文前請先確認該社群的自我宣傳規定。
 
 ## 授權
 
