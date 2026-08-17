@@ -1,0 +1,71 @@
+name: Bug report
+description: Report a problem with installation, discovery, documentation, or repository files.
+title: "[Bug]: "
+labels:
+  - bug
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for helping improve Tugboat. Remove secrets, private conversations, medical information, and identifying project details before submitting.
+  - type: checkboxes
+    id: preflight
+    attributes:
+      label: Before submitting
+      options:
+        - label: I searched the existing issues for the same problem.
+          required: true
+        - label: I removed private or identifying information.
+          required: true
+        - label: I agree to follow the Code of Conduct.
+          required: true
+  - type: dropdown
+    id: area
+    attributes:
+      label: Affected area
+      options:
+        - Installation
+        - Skill discovery or activation
+        - Documentation
+        - Repository files
+        - Other
+    validations:
+      required: true
+  - type: textarea
+    id: problem
+    attributes:
+      label: What happened?
+      description: Describe the problem and its effect.
+    validations:
+      required: true
+  - type: textarea
+    id: reproduce
+    attributes:
+      label: Minimal reproduction
+      description: Give the shortest de-identified sequence that reproduces the problem.
+      placeholder: |
+        1. Install with ...
+        2. Run ...
+        3. Observe ...
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behavior
+    validations:
+      required: true
+  - type: input
+    id: version
+    attributes:
+      label: Tugboat version or commit
+      placeholder: v0.1.0 or a commit hash
+    validations:
+      required: true
+  - type: input
+    id: agent
+    attributes:
+      label: Agent and version
+      placeholder: Codex, Claude Code, GitHub Copilot CLI, Pi, Gemini CLI, or Grok Build
+    validations:
+      required: false

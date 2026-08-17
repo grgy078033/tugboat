@@ -166,6 +166,9 @@ The skill is instruction-only and has no runtime dependencies.
 
 ```text
 .
+├── .github/
+│   ├── ISSUE_TEMPLATE/
+│   └── pull_request_template.md
 ├── assets/
 │   └── tugboat-social-preview.jpg
 ├── docs/
@@ -176,17 +179,21 @@ The skill is instruction-only and has no runtime dependencies.
 ├── tugboat/
 │   ├── SKILL.md
 │   └── agents/openai.yaml
+├── CODE_OF_CONDUCT.md
+├── CODE_OF_CONDUCT.zh-TW.md
 ├── CONTRIBUTING.md
 ├── LICENSE
 ├── README.md
-└── README.zh-TW.md
+├── README.zh-TW.md
+├── SECURITY.md
+└── SECURITY.zh-TW.md
 ```
 
 The installable artifact is the `tugboat/` directory. Planning notes and generated local analysis are intentionally excluded from the public artifact.
 
 ## Contributing
 
-Contributions are welcome. Read [`CONTRIBUTING.md`](CONTRIBUTING.md) before submitting changes, especially the privacy rules for examples and evaluations.
+Contributions are welcome. Read [`CONTRIBUTING.md`](CONTRIBUTING.md) before submitting changes, especially the privacy rules for examples and evaluations. Participation is covered by the [Code of Conduct](CODE_OF_CONDUCT.md), and suspected vulnerabilities should follow the [private Security Policy](SECURITY.md).
 
 To introduce Tugboat in a community, adapt the copy in the [bilingual launch kit](docs/launch-kit.md) and check that community's self-promotion rules before posting.
 

@@ -1,0 +1,48 @@
+name: Feature request
+description: Propose a focused improvement to Tugboat's instructions, evaluations, or documentation.
+title: "[Feature]: "
+labels:
+  - enhancement
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Explain the missing behavior with a de-identified example. A strong proposal changes observable behavior and can be evaluated.
+  - type: checkboxes
+    id: preflight
+    attributes:
+      label: Before submitting
+      options:
+        - label: I searched the existing issues for a similar proposal.
+          required: true
+        - label: I removed private or identifying information.
+          required: true
+        - label: I agree to follow the Code of Conduct.
+          required: true
+  - type: textarea
+    id: problem
+    attributes:
+      label: What problem should this solve?
+      description: Describe the failure mode or missing behavior.
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed behavior
+      description: Explain what Tugboat should do and what should remain unchanged.
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: How could we evaluate it?
+      description: Give a synthetic scenario and an observable pass/fail condition.
+    validations:
+      required: true
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives considered
+    validations:
+      required: false
