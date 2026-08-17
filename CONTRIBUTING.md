@@ -2,6 +2,12 @@
 
 Thank you for helping improve Tugboat. Contributions should make the skill more useful across different users and types of work without turning any one person's experience into a universal model.
 
+## Community and security
+
+By participating, you agree to follow the [Code of Conduct](CODE_OF_CONDUCT.md). Keep issue reports and pull requests de-identified; the templates are designed to collect the behavior needed for debugging without collecting a person's story.
+
+Do not open a public issue for a suspected vulnerability. Follow the private process in the [Security Policy](SECURITY.md). For unexpected skill behavior without a security impact, use the Skill behavior report template.
+
 ## Before proposing a change
 
 1. Describe the failure mode or missing behavior.

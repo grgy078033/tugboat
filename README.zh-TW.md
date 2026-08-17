@@ -166,6 +166,9 @@ Tugboat 不會：
 
 ```text
 .
+├── .github/
+│   ├── ISSUE_TEMPLATE/
+│   └── pull_request_template.md
 ├── assets/
 │   └── tugboat-social-preview.jpg
 ├── docs/
@@ -176,17 +179,21 @@ Tugboat 不會：
 ├── tugboat/
 │   ├── SKILL.md
 │   └── agents/openai.yaml
+├── CODE_OF_CONDUCT.md
+├── CODE_OF_CONDUCT.zh-TW.md
 ├── CONTRIBUTING.md
 ├── LICENSE
 ├── README.md
-└── README.zh-TW.md
+├── README.zh-TW.md
+├── SECURITY.md
+└── SECURITY.zh-TW.md
 ```
 
 可安裝的內容是 `tugboat/` 目錄。規劃筆記與本機產生的分析資料會刻意排除在公開內容之外。
 
 ## 參與貢獻
 
-歡迎提出貢獻。提交變更前，請先閱讀 [`CONTRIBUTING.md`](CONTRIBUTING.md)，尤其是案例與評估資料的隱私規則。
+歡迎提出貢獻。提交變更前，請先閱讀 [`CONTRIBUTING.md`](CONTRIBUTING.md)，尤其是案例與評估資料的隱私規則。參與時請遵守[行為準則](CODE_OF_CONDUCT.zh-TW.md)；若發現疑似漏洞，請依照[安全政策](SECURITY.zh-TW.md)私下回報。
 
 如果想在社群介紹 Tugboat，可以改寫[雙語發布素材](docs/launch-kit.zh-TW.md)中的內容；發文前請先確認該社群的自我宣傳規定。
 
